@@ -28,3 +28,9 @@ ghq-cd () {
     return 1
 }
 ```
+
+## 4.zoxide
+`zoxide` is a smarter `cd` command. 
+For macOS, install by `brew install zoxide`, for ubuntu, use the install script `curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | zsh`.
+
+After installation, setup zoxide by adding `eval "$(zoxide init zsh)` into `~/.zshrc`. Then you could use `z` to jump to recent directory.
