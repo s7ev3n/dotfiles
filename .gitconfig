@@ -1,0 +1,16 @@
+[user]
+  name = s7ev3n
+  email = s.eleven.73@gmail.com
+[alias]
+  st = status
+  co = checkout
+  cob = checkout -b
+  br = branch
+  brd = branch -d
+  cm = commit -m
+  amd = commit --amend --no-edit
+  ad = add
+  adu = add -u
+  po = push origin
+  plo = pull origin
+  lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
