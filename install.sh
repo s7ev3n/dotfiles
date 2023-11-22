@@ -4,8 +4,10 @@ check_installed() {
   type $1 &> /dev/null
   if [ $? -eq 0 ]; then
      echo "You have already installed $1"
+     return 0
+  else
+    return 1
   fi
-  return $?
 }
 
 confirm_install() {
@@ -71,6 +73,18 @@ install_ghq() {
    return 0
 }
 
+install_zoxide() {
+    if check_installed "zoxide"; then
+	echo "installed debug"
+	return 0
+    fi
+    echo "Installing zoxide..."
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
+    echo "Successfully installed!"	
+    return 0
+}
+
 if confirm_install "Miniconda"; then
     install_miniconda
 elif confirm_install "openssh-server"; then
@@ -79,4 +93,6 @@ elif confirm_install "tmux"; then
     install_tmux
 elif confirm_install "ghq"; then
     install_ghq
+elif confirm_install "zoxide"; then
+    install_zoxide
 fi

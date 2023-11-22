@@ -14,7 +14,7 @@ If you would like to learn more or forget some tmux bindings, check this blog [T
 `ghq` is a tool to manage local clones of github remote repos, see its [webpage](https://github.com/x-motemen/ghq).
 If you want to easily navigate to the clones, put below into `.zshrc` file:
 ```bash
-ghq-cd () {
+gcd () {
     if [ -n "$1" ]; then
         dir="$(ghq list --full-path --exact "$1")"
         if [ -z "$dir" ]; then
@@ -24,7 +24,7 @@ ghq-cd () {
         cd "$dir"
         return
     fi
-    echo 'usage: ghq-cd $repo'
+    echo 'usage: gcd $repo'
     return 1
 }
 ```
