@@ -56,10 +56,27 @@ install_tmux() {
     return 0
 }
 
+install_ghq() {
+   if check_installed "go-ghq"; then
+       if ! check_installed "conda"; then
+	   echo "Please install conda first"
+	   if confirm_install "Miniconda"; then
+		install_miniconda
+	   fi
+       fi	
+   fi
+   echo "Installing ghq..."
+   conda install -c conda-forge go-ghq
+   sudo ln -s /home/wst4sgh/miniconda3/bin/ghq  /usr/bin/ghq
+   return 0
+}
+
 if confirm_install "Miniconda"; then
     install_miniconda
 elif confirm_install "openssh-server"; then
     install_openssh-server
 elif confirm_install "tmux"; then
     install_tmux
+elif confirm_install "ghq"; then
+    install_ghq
 fi
