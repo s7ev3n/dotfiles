@@ -3,10 +3,27 @@
 [TOC]
 
 ## 1.tmux
-I follow [Tmux has forever changed the way I write code](https://www.youtube.com/watch?v=DzNmUNvnB04&t=94s) video to init the tmux config, and put the `tmux.conf` at `~/.config/tmux`, NOT usually at `~/.tmux.conf`.
-The video highlights the tmux-plugins manager which easily install a tmux theme.
+I follow [Tmux has forever changed the way I write code](https://www.youtube.com/watch?v=DzNmUNvnB04&t=94s) video to init the tmux config. The video highlights the tmux-plugins manager which easily install a tmux theme.
 
-If you would like to learn more or forget some tmux bindings, check this blog [Tmux使用手册](http://louiszhai.github.io/2017/09/30/tmux/#%E4%BC%9A%E8%AF%9D).
+First, you need to install `tpm` (Tmux Plugin Manager):
+Install by `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` and put below into `~/.tmux.conf` or `~/.config/tmux/.tmux.conf` file:
+
+```
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+Then, reload by `tmux source ~/.tmux.conf` or `tmux source ~/.config/tmux/.tmux.conf`
+Once you installed `tpm`, you are going to install some plugins:
+1. Add new plugin to `.tmux.conf` with `set -g @plugin '...'`
+2. Press **prefix + I** (capital i, as in Install) to fetch the plugin.
+
+PS: Usually, `.tmux.conf` will locate at `~`, but it is also ok to put into `~/.config/tmux/.tmux.conf` which is easy manage in one `.config` directory.
+
+PPS: If you would like to learn more or forget some tmux bindings, check this blog [Tmux使用手册](http://louiszhai.github.io/2017/09/30/tmux/#%E4%BC%9A%E8%AF%9D).
 
 ## 2.neovim
 
