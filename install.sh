@@ -85,6 +85,18 @@ install_zoxide() {
     return 0
 }
 
+install_poetry() {
+    if check_installed "poetry"; then
+	echo "installed poetry"
+	return 0
+    fi
+    echo "Installing poetry..."
+    curl -sSL https://install.python-poetry.org | python3 -
+    echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
+    echo "Successfully installed!"
+    return 
+}
+
 if confirm_install "Miniconda"; then
     install_miniconda
 elif confirm_install "openssh-server"; then
