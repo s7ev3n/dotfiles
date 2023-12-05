@@ -26,6 +26,23 @@ PS: Usually, `.tmux.conf` will locate at `~`, but it is also ok to put into `~/.
 PPS: If you would like to learn more or forget some tmux bindings, check this blog [Tmux使用手册](http://louiszhai.github.io/2017/09/30/tmux/#%E4%BC%9A%E8%AF%9D).
 
 ## 2.neovim
+`neovim` is a modern vim. 
+
+Follow [here](https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package) to install on Ubuntu:
+
+```
+curl -L -o ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage && sudo chmod u+x ~/.local/bin/nvim.appimage
+
+ln -s ~/.local/bin/nvim ~/.local/bin/nvim.appimage
+
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+```
+
+After installtion, you could start configing `neovim`, there are many out-of-the-box configs. 
+
+But let us first install fonts, because all the configs require [Nerd Font](https://www.nerdfonts.com/font-downloads). Choose one you like, I often use `FiraCode` and download it. Extract it and copy all the `*ttf` font file to `/usr/local/share/fonts/` to install the fonts. 
+
+Then, I choose [AstroNvim](https://astronvim.com/), you could follow its official installation to install it. 
 
 ## 3.ghq
 `ghq` is a tool to manage local clones of github remote repos, see its [webpage](https://github.com/x-motemen/ghq).
