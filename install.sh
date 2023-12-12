@@ -19,6 +19,21 @@ confirm_install() {
   fi
 }
 
+install_cuda() {
+    distro=ubuntu2004
+    arch=x86_64
+    cuda_ver=11-7
+    sudo apt-get install linux-headers-$(uname -r)
+    sudo apt-key del 7fa2af80
+    wget https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/cuda-keyring_1.1-1_all.deb
+    sudo dpkg -i cuda-keyring_1.1-1_all.deb && rm cuda-keyring_1.1-1_all.deb
+    sudo apt-get update
+    sudo apt-get install cuda-toolkit-$cuda_ver
+    sudo apt-get install nvidia-gds
+    echo 'Success! You should reboot now !'
+    echo 'Check https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu'
+}
+
 install_miniconda() {
     if check_installed "conda"; then
 	return 0
