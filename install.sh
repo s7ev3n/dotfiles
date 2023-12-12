@@ -30,6 +30,10 @@ install_cuda() {
     sudo apt-get update
     sudo apt-get install cuda-toolkit-$cuda_ver
     sudo apt-get install nvidia-gds
+    echo 'setting CUDA env variable'
+    echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.zshrc
+    echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.zshrc
+    echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.zshrc
     echo 'Success! You should reboot now !'
     echo 'Check https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu'
 }
